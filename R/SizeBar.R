@@ -43,7 +43,7 @@ Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, show_num){
                         panel.grid.major = element_blank())
                 + xlab(NULL) + ylab(ylabel)
                 + coord_flip() 
-                + scale_y_reverse(expand = c(0.1, 0))
+                + scale_y_reverse()
   if((show_num == "yes") || (show_num == "Yes")){
     Size_plot <- (Size_plot + geom_text(aes(y = 1, label = y), size = 2.8,
                                                 angle = 0, hjust = 1.2, colour = "white"))
