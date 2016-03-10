@@ -155,8 +155,8 @@ NoAttBasePlot <- function(legend, size_plot_height, Main_bar_plot, Matrix_plot, 
   }
   if(is.null(set_metadata) == T){
     matrix_and_mainbar_right <- 100
-    matrix_and_mainbar_left <- 21
-    size_bar_right <- 20
+    matrix_and_mainbar_left <- 23
+    size_bar_right <- 22
     size_bar_left <- 1
   }
   else if(is.null(set_metadata) == F){
