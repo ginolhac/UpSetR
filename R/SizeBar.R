@@ -38,14 +38,15 @@ Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, show_num){
                         axis.line.x = element_line(colour = "gray0", size = 0.3),
                         axis.text.y = element_blank(),
                         axis.ticks.y = element_blank(),
+                        panel.border = element_blank(),
                         panel.grid.minor = element_blank(),
                         panel.grid.major = element_blank())
                 + xlab(NULL) + ylab(ylabel)
                 + coord_flip() 
                 + scale_y_reverse())
   if((show_num == "yes") || (show_num == "Yes")){
-    Size_plot <- (Size_plot + geom_text(aes_string(label = "y"), size = 3.0, vjust = -1,
-                                                angle = 90, colour = sbar_color))
+    Size_plot <- (Size_plot + geom_text(aes_string(label = "y"), size = 3.0,
+                                                angle = -90, colour = sbar_color))
   }
   Size_plot <- ggplot_gtable(ggplot_build(Size_plot))
   return(Size_plot)
