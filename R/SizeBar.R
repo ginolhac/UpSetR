@@ -31,7 +31,7 @@ Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, show_num){
                                      breaks = c(0, max(Set_size_data)),
                                      expand = c(0,0))
                 + theme(panel.background = element_rect(fill = "white"),
-                        plot.margin=unit(c(-0.11,-1.3,0.5,-0.5), "lines"),
+                        plot.margin=unit(c(-0.11,-1.3,0.5,1.5), "lines"),
                         axis.title.x = element_text(size = 11),
                         axis.line = element_line(colour = "gray0"),
                         axis.line.y = element_blank(),
