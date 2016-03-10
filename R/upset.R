@@ -221,12 +221,12 @@ upset <- function(data, nsets = 5, nintersects = 40, sets = NULL, set.metadata =
                                palette)
   }
   AllQueryData <- combineQueriesData(QInter_att_data, QElem_att_data, customAttDat, att.x, att.y)
-  ShadingData <- MakeShading(Matrix_layout)
+  ShadingData <- MakeShading(Matrix_layout, shade.color)
   Main_bar <- Make_main_bar(All_Freqs, Bar_Q, show.numbers, mb.ratio, customQBar, number.angles, EBar_data, mainbar.y.label,
                             mainbar.y.max)
   Matrix <- Make_matrix_plot(Matrix_layout, Set_sizes, All_Freqs, point.size, line.size,
                              name.size, labels, ShadingData, shade.color, shade.alpha)
-  Sizes <- Make_size_plot(Set_sizes, sets.bar.color, mb.ratio, sets.x.label)
+  Sizes <- Make_size_plot(Set_sizes, sets.bar.color, mb.ratio, sets.x.label, show.numbers)
   
   if(is.null(set.metadata) == F){
     set.metadata <- Make_set_metadata_plot(set.metadata, labels)
