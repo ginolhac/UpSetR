@@ -58,7 +58,7 @@ Counter <- function(data, num_sets, start_col, name_of_sets, nintersections, mba
 
 ## Generate main bar plot
 Make_main_bar <- function(Main_bar_data, Q, show_num, ratios, customQ, number_angles,
-                          ebar, ylabel, ymax, side_col){
+                          ebar, ylabel, ymax){
   if(is.null(Q) == F){
     inter_data <- Q
     if(nrow(inter_data) != 0){
@@ -93,7 +93,7 @@ Make_main_bar <- function(Main_bar_data, Q, show_num, ratios, customQ, number_an
                     + theme(panel.background = element_rect(fill = "white"),
                             plot.margin = unit(c(0.5,0.5,0.19,0.5), "lines"), panel.border = element_blank(),
                             axis.title.y = element_text(vjust = -0.8),
-                            axis.text.y = element_text(vjust=0.3, colour = side_col)))
+                            axis.text.y = element_text(vjust=0.3)))
   if((show_num == "yes") || (show_num == "Yes")){
     Main_bar_plot <- (Main_bar_plot + geom_text(aes_string(label = "freq"), size = 3.0, vjust = -1,
                                                 angle = number_angles, colour = Main_bar_data$color))

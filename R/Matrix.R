@@ -82,7 +82,7 @@ Make_matrix_plot <- function(Mat_data,Set_size_data, Main_bar_data, point_size, 
                           axis.text.x = element_blank(),
                           axis.ticks.x = element_blank(),
                           axis.ticks.y = element_blank(),
-                          axis.text.y = element_text(colour = "gray0", 
+                          axis.text.y = element_text(colour = shade_color, 
                                                      size = name_size, hjust = 0.4),
                           panel.grid.major = element_blank(), 
                           panel.grid.minor = element_blank())
