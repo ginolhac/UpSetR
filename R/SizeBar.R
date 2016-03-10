@@ -43,9 +43,9 @@ Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, show_num){
                         panel.grid.major = element_blank())
                 + xlab(NULL) + ylab(ylabel)
                 + coord_flip() 
-                + scale_y_reverse())
+                + scale_y_reverse(expand = c(0.1, 0))
   if((show_num == "yes") || (show_num == "Yes")){
-    Size_plot <- (Size_plot + geom_text(aes(y = 1, label = "y"), size = 2.8,
+    Size_plot <- (Size_plot + geom_text(aes(y = 1, label = y), size = 2.8,
                                                 angle = 0, hjust = 1.2, colour = "white"))
   }
   Size_plot <- ggplot_gtable(ggplot_build(Size_plot))
