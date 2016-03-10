@@ -46,7 +46,7 @@ Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, show_num){
                 + scale_y_reverse())
   if((show_num == "yes") || (show_num == "Yes")){
     Size_plot <- (Size_plot + geom_text(aes_string(label = "y"), size = 3.0,
-                                                angle = 0, hjust = 1, colour = sbar_color))
+                                                angle = 0, hjust = 1.2, colour = sbar_color))
   }
   Size_plot <- ggplot_gtable(ggplot_build(Size_plot))
   return(Size_plot)
