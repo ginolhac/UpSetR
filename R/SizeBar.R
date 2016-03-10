@@ -31,7 +31,7 @@ Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, show_num){
                                      breaks = c(0, max(Set_size_data)),
                                      expand = c(0,0))
                 + theme(panel.background = element_rect(fill = "white"),
-                        plot.margin = unit(c(-0.11,-1.3,0.5,2.5), "lines"),
+                        plot.margin = unit(c(-0.11,-1.3,0.5,0.5), "lines"),
                         axis.title.x = element_text(size = 11),
                         axis.line = element_line(colour = "gray0"),
                         axis.line.y = element_blank(),
@@ -43,7 +43,7 @@ Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, show_num){
                         panel.grid.major = element_blank())
                 + xlab(NULL) + ylab(ylabel)
                 + coord_flip() 
-                + scale_y_reverse())
+                + scale_y_reverse(expand(0, 1))
   if((show_num == "yes") || (show_num == "Yes")){
     Size_plot <- (Size_plot + geom_text(aes_string(label = "y"), size = 3.0,
                                                 angle = 0, hjust = 1.2, colour = sbar_color))
