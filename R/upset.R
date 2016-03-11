@@ -226,7 +226,8 @@ upset <- function(data, nsets = 5, nintersects = 40, sets = NULL, set.metadata =
                             mainbar.y.max)
   Matrix <- Make_matrix_plot(Matrix_layout, Set_sizes, All_Freqs, point.size, line.size,
                              name.size, labels, ShadingData, shade.color, shade.alpha)
-  Sizes <- Make_size_plot(Set_sizes, sets.bar.color, mb.ratio, sets.x.label, show.numbers)
+  # FIXME, Set_names should an option
+  Sizes <- Make_size_plot(Set_sizes, sets.bar.color, mb.ratio, sets.x.label, Set_names, show.numbers)
   
   if(is.null(set.metadata) == F){
     set.metadata <- Make_set_metadata_plot(set.metadata, labels)
