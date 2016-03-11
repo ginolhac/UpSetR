@@ -224,11 +224,12 @@ upset <- function(data, nsets = 5, nintersects = 40, sets = NULL, set.metadata =
   ShadingData <- MakeShading(Matrix_layout, shade.color)
   Main_bar <- Make_main_bar(All_Freqs, Bar_Q, show.numbers, mb.ratio, customQBar, number.angles, EBar_data, mainbar.y.label,
                             mainbar.y.max)
+  Set_colors <- GetGroupColor(Set_names)
   Matrix <- Make_matrix_plot(Matrix_layout, Set_sizes, All_Freqs, point.size, line.size,
-                             name.size, labels, ShadingData, shade.color, shade.alpha)
+                             name.size, labels, ShadingData, Set_colors, shade.alpha)
   # FIXME, Set_names should an option
-  print(Set_names)
-  Sizes <- Make_size_plot(Set_sizes, sets.bar.color, mb.ratio, sets.x.label, Set_names, show.numbers)
+  
+  Sizes <- Make_size_plot(Set_sizes, Set_colors, mb.ratio, sets.x.label, show.numbers)
   
   if(is.null(set.metadata) == F){
     set.metadata <- Make_set_metadata_plot(set.metadata, labels)

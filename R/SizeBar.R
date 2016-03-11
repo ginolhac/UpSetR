@@ -1,5 +1,5 @@
 ## Find frequency of each set for set size bar plot
-FindSetFreqs <- function(data, start_col, num_sets, set_names, show_num){
+FindSetFreqs <- function(data, start_col, num_sets, set_names){
   end_col <- as.numeric(((start_col + num_sets) -1))
   temp_data <- data[ ,start_col:end_col]
   temp_data <- temp_data[set_names]
@@ -13,7 +13,7 @@ FindSetFreqs <- function(data, start_col, num_sets, set_names, show_num){
 }
 
 ## Generate set size plot
-Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, set_names = NULL, show_num){
+Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, show_num){
 #   if(ratios[1] < 0.4){
 #     m <- (-0.05)
 #   }
@@ -23,17 +23,7 @@ Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, set_names 
 #   else{
 #     m <- 0
 #   }
-  # get order of categories
-  if (!is.null(set_names)) {
-    groups <- stringr::str_match(set_names, "(.+)_")[,2]
-    cols <- data.frame(c = brewer.pal(length(unique(groups)), name = "Set1"),
-                       g = unique(groups))
-    mynames <- data.frame(n = set_names, g = groups)
-    # expand color according to groups
-    # join from plyr keep the ordering while merge does not
-    sbar_color <- as.character(plyr::join(mynames, cols)$c)
-  }
-  
+
   Size_plot <- (ggplot(data = Set_size_data, aes_string(x ="x", y = "y"))
                 + geom_bar(stat = "identity",colour = sbar_color, width = 0.4,
                            fill = sbar_color, position = "identity")
