@@ -34,11 +34,6 @@ Make_size_plot <- function(Set_size_data, sbar_color, ratios, ylabel, set_names 
     sbar_color <- as.character(plyr::join(mynames, cols)$c)
   }
   
-  set_names <- c("HepLux5_T72h-T00h", "HepLux6_T48h-T00h", "HepLux6_T72h-T00h", "HepLux5_T48h-T00h", "HepLux5_T24h-T00h",
-  "HepLux6_T24h-T00h", "HuH7_T24h-T00h",    "HepLux5_T06h-T00h", "HuH7_T06h-T00h",    "HuH7_T48h-T00h",
-  "HepG2_T24h-T00h",   "HepLux6_T06h-T00h")
-  [13] "HuH7_T72h-T00h"    "HepG2_T06h-T00h"   "HepG2_T72h-T00h"   "HepG2_T48h-T00h"
-  
   Size_plot <- (ggplot(data = Set_size_data, aes_string(x ="x", y = "y"))
                 + geom_bar(stat = "identity",colour = sbar_color, width = 0.4,
                            fill = sbar_color, position = "identity")
