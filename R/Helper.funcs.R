@@ -167,5 +167,5 @@ GetGroupColor <- function(set_names) {
   mynames <- data.frame(n = set_names, g = groups)
   # expand color according to groups
   # join from plyr keep the ordering while merge does not
-  as.character(plyr::join(mynames, cols)$c)
+  as.character(plyr::join(mynames, cols, by = "g")$c)
 }
