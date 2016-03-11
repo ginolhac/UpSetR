@@ -162,7 +162,7 @@ OverlayEdit <- function(data1, data2, start_col, num_sets, intersects, exp, inte
 GetGroupColor <- function(set_names) {
   # get order of categories
   groups <- stringr::str_match(set_names, "(.+)_")[,2]
-  cols <- data.frame(c = brewer.pal(length(unique(groups)), name = "Set1"),
+  cols <- data.frame(c = RColorBrewer::brewer.pal(length(unique(groups)), name = "Set1"),
                      g = unique(groups))
   mynames <- data.frame(n = set_names, g = groups)
   # expand color according to groups
