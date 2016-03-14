@@ -160,12 +160,11 @@ OverlayEdit <- function(data1, data2, start_col, num_sets, intersects, exp, inte
 
 # get colors according to groups
 GetGroupColor <- function(set_names) {
-  # get order of categories
-  groups <- stringr::str_match(set_names, "(.+)_")[,2]
-  cols <- data.frame(c = RColorBrewer::brewer.pal(length(unique(groups)), name = "Set1"),
-                     g = unique(groups))
-  mynames <- data.frame(n = set_names, g = groups)
-  # expand color according to groups
-  # join from plyr keep the ordering while merge does not
-  as.character(plyr::join(mynames, cols, by = "g")$c)
+  # extract categories in right order
+  groups <- sub("([[:alnum:]])_.*", "\\1", set_names)
+  # get colors
+  if (length(unique(groups)) > 9) stop("More than 9 groups, not enough colors") 
+  cols <- RColorBrewer::brewer.pal(length(unique(groups)), name = "Set1")
+  cols <- setNames(cols, unique(groups))
+  unname(cols[groups])
 }
